@@ -13,7 +13,7 @@ export const Swap = () => {
   return (
     <Sheet
       sx={{
-        width: 400,
+        width: 500,
         mx: "auto",
         my: 4,
         py: 3,
@@ -29,20 +29,46 @@ export const Swap = () => {
         Swap
       </Typography>
       <FormControl>
-        <FormLabel>Sell</FormLabel>
-        <Input
-          name="token-sell"
-          type="text"
-          placeholder="Choose token to sell"
-        />
+        <Sheet
+          sx={{
+            py: 3,
+            px: 2,
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            borderRadius: "sm",
+            boxShadow: "md",
+          }}
+          variant="outlined"
+        >
+          <FormLabel>Sell</FormLabel>
+          <Input
+            name="token-sell"
+            type="text"
+            placeholder="Choose token to sell"
+          />
+        </Sheet>
       </FormControl>
       <FormControl>
-        <FormLabel>Buy</FormLabel>
-        <Input
-          name="token-buy"
-          type="text"
-          placeholder="Choose token to buy"
-        />
+        <Sheet
+          sx={{
+            py: 3,
+            px: 2,
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            borderRadius: "sm",
+            boxShadow: "md",
+          }}
+          variant="outlined"
+        >
+          <FormLabel>Buy</FormLabel>
+          <Input
+            name="token-buy"
+            type="text"
+            placeholder="Choose token to buy"
+          />
+        </Sheet>
       </FormControl>
       <Button>Swap</Button>
     </Sheet>
