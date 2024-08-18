@@ -36,7 +36,7 @@ import {
     PolygonIcon
 } from "../common/Icons"
 
-enum Layer {
+enum Chain {
     Ethereum,
     Arbitrum,
     Optimism,
@@ -46,21 +46,21 @@ enum Layer {
     Avalanche,
 }
 
-const layers = new Map<Layer, JSX.Element>([
-    [Layer.Ethereum, <EthereumIcon />],
-    [Layer.Arbitrum, <ArbitrumIcon />],
-    [Layer.Optimism, <OptimismIcon />],
-    [Layer.Polygon, <PolygonIcon />],
-    [Layer.Base, <BaseIcon />],
-    [Layer.BnbChain, <BnbChainIcon />],
-    [Layer.Avalanche, <AvalancheIcon />],
+const chains = new Map<Chain, JSX.Element>([
+    [Chain.Ethereum, <EthereumIcon />],
+    [Chain.Arbitrum, <ArbitrumIcon />],
+    [Chain.Optimism, <OptimismIcon />],
+    [Chain.Polygon, <PolygonIcon />],
+    [Chain.Base, <BaseIcon />],
+    [Chain.BnbChain, <BnbChainIcon />],
+    [Chain.Avalanche, <AvalancheIcon />],
 ])
 
 export const Navigation = () => {
     const { mode, setMode } = useColorScheme()
     const [open, setOpen] = React.useState(false)
     const [walletConnected, setWalletConnected] = React.useState(false)
-    const [layer, setLayer] = React.useState(Layer.Ethereum)
+    const [chain, setChain] = React.useState(Chain.Ethereum)
 
     return (
         <Box
@@ -192,10 +192,10 @@ export const Navigation = () => {
                             <MenuButton
                                 variant="plain"
                                 size="lg"
-                                title="Choose layer"
+                                title="Choose chain"
                                 sx={{ maxWidth: "58px", maxHeight: "42px", borderRadius: "0px" }}
                             >
-                                {layers.get(layer)}
+                                {chains.get(chain)}
                             </MenuButton>
                             <Menu
                                 placement="bottom-end"
@@ -207,46 +207,46 @@ export const Navigation = () => {
                                     "--ListItem-radius": "var(--joy-radius-sm)",
                                 }}
                             >
-                                <MenuItem onClick={() => setLayer(Layer.Ethereum)}>
-                                    {layers.get(Layer.Ethereum)}
+                                <MenuItem onClick={() => setChain(Chain.Ethereum)}>
+                                    {chains.get(Chain.Ethereum)}
                                     Ethereum
                                     <ListItemDecorator>
-                                        {layer === Layer.Ethereum && <Check />}
+                                        {chain === Chain.Ethereum && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
-                                <MenuItem onClick={() => setLayer(Layer.Arbitrum)}>
-                                    {layers.get(Layer.Arbitrum)}
+                                <MenuItem onClick={() => setChain(Chain.Arbitrum)}>
+                                    {chains.get(Chain.Arbitrum)}
                                     Arbitrum
                                     <ListItemDecorator>
-                                        {layer === Layer.Arbitrum && <Check />}
+                                        {chain === Chain.Arbitrum && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
-                                <MenuItem onClick={() => setLayer(Layer.Optimism)}>
-                                    {layers.get(Layer.Optimism)}
+                                <MenuItem onClick={() => setChain(Chain.Optimism)}>
+                                    {chains.get(Chain.Optimism)}
                                     Optimism
                                     <ListItemDecorator>
-                                        {layer === Layer.Optimism && <Check />}
+                                        {chain === Chain.Optimism && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
-                                <MenuItem onClick={() => setLayer(Layer.Polygon)}>
-                                    {layers.get(Layer.Polygon)}
+                                <MenuItem onClick={() => setChain(Chain.Polygon)}>
+                                    {chains.get(Chain.Polygon)}
                                     Polygon
                                     <ListItemDecorator>
-                                        {layer === Layer.Polygon && <Check />}
+                                        {chain === Chain.Polygon && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
-                                <MenuItem onClick={() => setLayer(Layer.BnbChain)}>
-                                    {layers.get(Layer.BnbChain)}
+                                <MenuItem onClick={() => setChain(Chain.BnbChain)}>
+                                    {chains.get(Chain.BnbChain)}
                                     BNB Chain
                                     <ListItemDecorator>
-                                        {layer === Layer.BnbChain && <Check />}
+                                        {chain === Chain.BnbChain && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
-                                <MenuItem onClick={() => setLayer(Layer.Avalanche)}>
-                                    {layers.get(Layer.Avalanche)}
+                                <MenuItem onClick={() => setChain(Chain.Avalanche)}>
+                                    {chains.get(Chain.Avalanche)}
                                     Avalanche
                                     <ListItemDecorator>
-                                        {layer === Layer.Avalanche && <Check />}
+                                        {chain === Chain.Avalanche && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                             </Menu>
