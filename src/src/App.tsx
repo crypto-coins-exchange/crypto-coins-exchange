@@ -4,7 +4,7 @@ import {
   CssVarsProvider,
 } from "@mui/joy"
 import { Swap } from "./swap/Swap"
-import { Navigation } from "./Navigation"
+import { Navigation } from "./menu/Navigation"
 
 function App() {
 
