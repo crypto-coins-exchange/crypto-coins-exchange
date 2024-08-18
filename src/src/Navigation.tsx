@@ -30,6 +30,7 @@ import {
 export const Navigation = () => {
     const { mode, setMode } = useColorScheme()
     const [open, setOpen] = React.useState(false)
+    const [walletConnected, setWalletConnected] = React.useState(false)
 
     return (
         <Box
@@ -212,10 +213,11 @@ export const Navigation = () => {
                         </Dropdown>
                         <ListItem role="none">
                             <ListItemButton
-                                color="success"
+                                color={walletConnected ? "warning" : "success"}
                                 variant="soft"
+                                onClick={() => setWalletConnected(!walletConnected)}
                             >
-                                Connect wallet
+                                {walletConnected ? "Disconnect wallet" : "Connect wallet"}
                             </ListItemButton>
                         </ListItem>
                     </List>
