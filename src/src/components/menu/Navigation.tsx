@@ -22,19 +22,10 @@ import {
     DarkMode,
     Home,
     LightMode,
-    CurrencyBitcoin,
     Check,
     MenuRounded
 } from "@mui/icons-material"
-import {
-    ArbitrumIcon,
-    AvalancheIcon,
-    BaseIcon,
-    BnbChainIcon,
-    EthereumIcon,
-    OptimismIcon,
-    PolygonIcon
-} from "../common/Icons"
+import { Icons, } from "../common/Icons"
 
 enum Chain {
     Ethereum,
@@ -45,16 +36,6 @@ enum Chain {
     BnbChain,
     Avalanche,
 }
-
-const chains = new Map<Chain, JSX.Element>([
-    [Chain.Ethereum, <EthereumIcon />],
-    [Chain.Arbitrum, <ArbitrumIcon />],
-    [Chain.Optimism, <OptimismIcon />],
-    [Chain.Polygon, <PolygonIcon />],
-    [Chain.Base, <BaseIcon />],
-    [Chain.BnbChain, <BnbChainIcon />],
-    [Chain.Avalanche, <AvalancheIcon />],
-])
 
 export const Navigation = () => {
     const { mode, setMode } = useColorScheme()
@@ -195,7 +176,7 @@ export const Navigation = () => {
                                 title="Choose chain"
                                 sx={{ maxWidth: "58px", maxHeight: "42px", borderRadius: "0px" }}
                             >
-                                {chains.get(chain)}
+                                <Icons chain={chain} />
                             </MenuButton>
                             <Menu
                                 placement="bottom-end"
@@ -208,42 +189,42 @@ export const Navigation = () => {
                                 }}
                             >
                                 <MenuItem onClick={() => setChain(Chain.Ethereum)}>
-                                    {chains.get(Chain.Ethereum)}
+                                    <Icons chain={Chain.Ethereum} />
                                     Ethereum
                                     <ListItemDecorator>
                                         {chain === Chain.Ethereum && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.Arbitrum)}>
-                                    {chains.get(Chain.Arbitrum)}
+                                    <Icons chain={Chain.Arbitrum} />
                                     Arbitrum
                                     <ListItemDecorator>
                                         {chain === Chain.Arbitrum && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.Optimism)}>
-                                    {chains.get(Chain.Optimism)}
+                                    <Icons chain={Chain.Optimism} />
                                     Optimism
                                     <ListItemDecorator>
                                         {chain === Chain.Optimism && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.Polygon)}>
-                                    {chains.get(Chain.Polygon)}
+                                    <Icons chain={Chain.Polygon} />
                                     Polygon
                                     <ListItemDecorator>
                                         {chain === Chain.Polygon && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.BnbChain)}>
-                                    {chains.get(Chain.BnbChain)}
+                                    <Icons chain={Chain.BnbChain} />
                                     BNB Chain
                                     <ListItemDecorator>
                                         {chain === Chain.BnbChain && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.Avalanche)}>
-                                    {chains.get(Chain.Avalanche)}
+                                    <Icons chain={Chain.Avalanche} />
                                     Avalanche
                                     <ListItemDecorator>
                                         {chain === Chain.Avalanche && <Check />}
