@@ -2,10 +2,14 @@ import React from "react"
 import logo from "./logo.svg"
 import {
     Box,
+    Dropdown,
     List,
     ListDivider,
     ListItem,
     ListItemButton,
+    Menu,
+    MenuButton,
+    MenuItem,
     useColorScheme
 } from "@mui/joy"
 import { DarkMode, Home, LightMode, CurrencyBitcoin } from "@mui/icons-material"
@@ -64,14 +68,50 @@ export const Navigation = () => {
                             {mode === "light" ? <LightMode /> : <DarkMode />}
                         </ListItemButton>
                     </ListItem>
-                    <ListItem role="none">
-                        <ListItemButton
-                            role="menuitem"
-                            component="button"
+                    <Dropdown>
+                        <MenuButton
+                            variant="plain"
+                            size="lg"
+                            sx={{ maxWidth: "58px", maxHeight: "42px", borderRadius: "0px" }}
                         >
                             <CurrencyBitcoin />
-                        </ListItemButton>
-                    </ListItem>
+                        </MenuButton>
+                        <Menu
+                            placement="bottom-end"
+                            size="md"
+                            sx={{
+                                zIndex: "99999",
+                                p: 1,
+                                gap: 1,
+                                "--ListItem-radius": "var(--joy-radius-sm)",
+                            }}
+                        >
+                            <MenuItem>
+                                <CurrencyBitcoin />
+                                Ethereum
+                            </MenuItem>
+                            <MenuItem>
+                                <CurrencyBitcoin />
+                                Arbitrum
+                            </MenuItem>
+                            <MenuItem>
+                                <CurrencyBitcoin />
+                                Optimism
+                            </MenuItem>
+                            <MenuItem>
+                                <CurrencyBitcoin />
+                                Poligon
+                            </MenuItem>
+                            <MenuItem>
+                                <CurrencyBitcoin />
+                                BNB Chain
+                            </MenuItem>
+                            <MenuItem>
+                                <CurrencyBitcoin />
+                                Avalanche
+                            </MenuItem>
+                        </Menu>
+                    </Dropdown>
                     <ListItem role="none">
                         <ListItemButton
                             color="success"
