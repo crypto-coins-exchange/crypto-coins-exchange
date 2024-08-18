@@ -26,11 +26,41 @@ import {
     Check,
     MenuRounded
 } from "@mui/icons-material"
+import {
+    ArbitrumIcon,
+    AvalancheIcon,
+    BaseIcon,
+    BnbChainIcon,
+    EthereumIcon,
+    OptimismIcon,
+    PolygonIcon
+} from "../common/Icons"
+
+enum Layer {
+    Ethereum,
+    Arbitrum,
+    Optimism,
+    Polygon,
+    Base,
+    BnbChain,
+    Avalanche,
+}
+
+const layers = new Map<Layer, JSX.Element>([
+    [Layer.Ethereum, <EthereumIcon />],
+    [Layer.Arbitrum, <ArbitrumIcon />],
+    [Layer.Optimism, <OptimismIcon />],
+    [Layer.Polygon, <PolygonIcon />],
+    [Layer.Base, <BaseIcon />],
+    [Layer.BnbChain, <BnbChainIcon />],
+    [Layer.Avalanche, <AvalancheIcon />],
+])
 
 export const Navigation = () => {
     const { mode, setMode } = useColorScheme()
     const [open, setOpen] = React.useState(false)
     const [walletConnected, setWalletConnected] = React.useState(false)
+    const [layer, setLayer] = React.useState(Layer.Ethereum)
 
     return (
         <Box
@@ -165,7 +195,7 @@ export const Navigation = () => {
                                 title="Choose layer"
                                 sx={{ maxWidth: "58px", maxHeight: "42px", borderRadius: "0px" }}
                             >
-                                <CurrencyBitcoin />
+                                {layers.get(layer)}
                             </MenuButton>
                             <Menu
                                 placement="bottom-end"
@@ -177,37 +207,47 @@ export const Navigation = () => {
                                     "--ListItem-radius": "var(--joy-radius-sm)",
                                 }}
                             >
-                                <MenuItem>
-                                    <CurrencyBitcoin />
+                                <MenuItem onClick={() => setLayer(Layer.Ethereum)}>
+                                    {layers.get(Layer.Ethereum)}
                                     Ethereum
-                                    <ListItemDecorator />
-                                </MenuItem>
-                                <MenuItem>
-                                    <CurrencyBitcoin />
-                                    Arbitrum
                                     <ListItemDecorator>
-                                        <Check />
+                                        {layer === Layer.Ethereum && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
-                                <MenuItem>
-                                    <CurrencyBitcoin />
+                                <MenuItem onClick={() => setLayer(Layer.Arbitrum)}>
+                                    {layers.get(Layer.Arbitrum)}
+                                    Arbitrum
+                                    <ListItemDecorator>
+                                        {layer === Layer.Arbitrum && <Check />}
+                                    </ListItemDecorator>
+                                </MenuItem>
+                                <MenuItem onClick={() => setLayer(Layer.Optimism)}>
+                                    {layers.get(Layer.Optimism)}
                                     Optimism
-                                    <ListItemDecorator />
+                                    <ListItemDecorator>
+                                        {layer === Layer.Optimism && <Check />}
+                                    </ListItemDecorator>
                                 </MenuItem>
-                                <MenuItem>
-                                    <CurrencyBitcoin />
-                                    Poligon
-                                    <ListItemDecorator />
+                                <MenuItem onClick={() => setLayer(Layer.Polygon)}>
+                                    {layers.get(Layer.Polygon)}
+                                    Polygon
+                                    <ListItemDecorator>
+                                        {layer === Layer.Polygon && <Check />}
+                                    </ListItemDecorator>
                                 </MenuItem>
-                                <MenuItem>
-                                    <CurrencyBitcoin />
+                                <MenuItem onClick={() => setLayer(Layer.BnbChain)}>
+                                    {layers.get(Layer.BnbChain)}
                                     BNB Chain
-                                    <ListItemDecorator />
+                                    <ListItemDecorator>
+                                        {layer === Layer.BnbChain && <Check />}
+                                    </ListItemDecorator>
                                 </MenuItem>
-                                <MenuItem>
-                                    <CurrencyBitcoin />
+                                <MenuItem onClick={() => setLayer(Layer.Avalanche)}>
+                                    {layers.get(Layer.Avalanche)}
                                     Avalanche
-                                    <ListItemDecorator />
+                                    <ListItemDecorator>
+                                        {layer === Layer.Avalanche && <Check />}
+                                    </ListItemDecorator>
                                 </MenuItem>
                             </Menu>
                         </Dropdown>
