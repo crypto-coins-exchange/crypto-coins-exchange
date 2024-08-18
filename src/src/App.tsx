@@ -4,7 +4,7 @@ import {
   CssBaseline,
   CssVarsProvider,
 } from "@mui/joy"
-import { Exchange } from "./exchange/Exchange"
+import { Swap } from "./swap/Swap"
 import { Navigation } from "./Navigation"
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     >
       <CssBaseline />
       <Navigation />
-      <Exchange />
+      <Swap />
     </CssVarsProvider>
   )
 }

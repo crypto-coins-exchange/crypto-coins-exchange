@@ -9,7 +9,7 @@ import {
   Input
 } from "@mui/joy"
 
-export const Exchange = () => {
+export const Swap = () => {
   return (
     <Sheet
       sx={{
@@ -26,7 +26,7 @@ export const Exchange = () => {
       }}
       variant="outlined">
       <Typography level="h4" component="h1">
-        Exchange
+        Swap
       </Typography>
       <FormControl>
         <FormLabel>Sell</FormLabel>
@@ -44,7 +44,7 @@ export const Exchange = () => {
           placeholder="Choose token to buy"
         />
       </FormControl>
-      <Button>Exchange now</Button>
+      <Button>Swap</Button>
     </Sheet>
   )
 }
