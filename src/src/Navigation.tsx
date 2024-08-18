@@ -1,22 +1,35 @@
 import React from "react"
-import logo from "./logo.svg"
 import {
     Box,
+    DialogTitle,
+    Drawer,
     Dropdown,
+    IconButton,
     List,
     ListDivider,
     ListItem,
     ListItemButton,
+    ListItemContent,
     ListItemDecorator,
     Menu,
     MenuButton,
     MenuItem,
+    ModalClose,
+    Stack,
     useColorScheme
 } from "@mui/joy"
-import { DarkMode, Home, LightMode, CurrencyBitcoin, Check } from "@mui/icons-material"
+import {
+    DarkMode,
+    Home,
+    LightMode,
+    CurrencyBitcoin,
+    Check,
+    MenuRounded
+} from "@mui/icons-material"
 
 export const Navigation = () => {
     const { mode, setMode } = useColorScheme()
+    const [open, setOpen] = React.useState(false)
 
     return (
         <Box
@@ -47,28 +60,82 @@ export const Navigation = () => {
                     justifyContent: "space-between",
                 }}
             >
-                <List role="menubar" orientation="horizontal" size="lg">
-                    <ListItem role="none">
-                        <ListItemButton
-                            role="menuitem"
-                            component="a"
-                            href="/"
-                        >
-                            <Home />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListDivider />
-                    <ListItem role="none">
-                        <ListItemButton role="menuitem" component="a" href="/swap">
-                            Swap
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem role="none">
-                        <ListItemButton role="menuitem" component="a" href="/liquidity">
-                            Liquidity
-                        </ListItemButton>
-                    </ListItem>
-                </List>
+                <Stack
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
+                    spacing={1}
+                    sx={{ display: { xs: "none", sm: "flex" } }}
+                >
+                    <List role="menubar" orientation="horizontal" size="lg">
+                        <ListItem role="none">
+                            <ListItemButton
+                                role="menuitem"
+                                component="a"
+                                href="/"
+                            >
+                                <Home />
+                            </ListItemButton>
+                        </ListItem>
+                        <ListDivider />
+                        <ListItem role="none">
+                            <ListItemButton role="menuitem" component="a" href="/swap">
+                                Swap
+                            </ListItemButton>
+                        </ListItem>
+                        <ListItem role="none">
+                            <ListItemButton role="menuitem" component="a" href="/liquidity">
+                                Liquidity
+                            </ListItemButton>
+                        </ListItem>
+                    </List>
+                </Stack>
+
+                <Box sx={{ display: { xs: "inline-flex", sm: "none" } }}>
+                    <IconButton variant="plain" color="neutral" onClick={() => setOpen(true)}>
+                        <MenuRounded />
+                    </IconButton>
+                    <Drawer
+                        sx={{ display: { xs: "inline-flex", sm: "none" } }}
+                        open={open}
+                        onClose={() => setOpen(false)}
+                    >
+                        <ModalClose />
+                        <DialogTitle>Crypto exchange</DialogTitle>
+                        <Box sx={{ px: 1 }}>
+                            <List
+                                size="sm"
+                                sx={{ '--ListItem-radius': 'var(--joy-radius-sm)', '--List-gap': '4px' }}
+                            >
+                                <ListItem nested>
+                                    <List
+                                        aria-labelledby="nav-list-browse"
+                                        sx={{
+                                            '& .JoyListItemButton-root': { p: '8px' },
+                                        }}
+                                    >
+                                        <ListItem>
+                                            <ListItemButton>
+                                                <ListItemContent>Home</ListItemContent>
+                                            </ListItemButton>
+                                        </ListItem>
+                                        <ListItem>
+                                            <ListItemButton>
+                                                <ListItemContent>Swap</ListItemContent>
+                                            </ListItemButton>
+                                        </ListItem>
+                                        <ListItem>
+                                            <ListItemButton>
+                                                <ListItemContent>Liquidity</ListItemContent>
+                                            </ListItemButton>
+                                        </ListItem>
+                                    </List>
+                                </ListItem>
+                            </List>
+                        </Box>
+                    </Drawer>
+                </Box>
+
                 <Box
                     sx={{
                         display: "flex",
@@ -84,7 +151,7 @@ export const Navigation = () => {
                                 component="button"
                                 title={mode === "light" ? "Turn dark" : "Turn light"}
                                 onClick={() => {
-                                    setMode(mode === "light" ? "dark" : "light");
+                                    setMode(mode === "light" ? "dark" : "light")
                                 }}
                             >
                                 {mode === "light" ? <LightMode /> : <DarkMode />}
