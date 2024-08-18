@@ -1,7 +1,6 @@
 import React from "react"
 import logo from "./logo.svg"
 import {
-  CssVarsProvider,
   Button,
   Sheet,
   Typography,
