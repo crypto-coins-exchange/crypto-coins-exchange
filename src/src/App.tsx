@@ -10,7 +10,9 @@ import { Navigation } from "./Navigation"
 function App() {
 
   return (
-    <CssVarsProvider>
+    <CssVarsProvider
+      defaultMode="dark"
+    >
       <CssBaseline />
       <Navigation />
       <Exchange />
