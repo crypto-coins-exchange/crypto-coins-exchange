@@ -14,7 +14,8 @@ export const Swap = () => {
   return (
     <Sheet
       sx={{
-        width: 500,
+        width: 450,
+        height: "max-content",
         mx: "auto",
         my: 4,
         py: 3,
