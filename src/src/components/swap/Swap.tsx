@@ -1,12 +1,13 @@
 import React from "react"
-import logo from "./logo.svg"
 import {
   Button,
   Sheet,
   Typography,
   FormControl,
   FormLabel,
-  Input
+  Input,
+  Autocomplete,
+  Grid
 } from "@mui/joy"
 
 export const Swap = () => {
@@ -42,11 +43,27 @@ export const Swap = () => {
           variant="outlined"
         >
           <FormLabel>Sell</FormLabel>
-          <Input
-            name="token-sell"
-            type="text"
-            placeholder="Choose token to sell"
-          />
+          <Grid container spacing={2} sx={{ flexGrow: 1 }}>
+            <Grid xs={6}>
+              <Autocomplete
+                defaultValue={"MATIC"}
+                options={["MATIC", "ETH", "USDT"]}
+              />
+            </Grid>
+            <Grid xs={6}>
+              <Input
+                name="token-sell"
+                type="text"
+                defaultValue={0}
+              />
+            </Grid>
+            <Grid xs={6}>
+              <Typography level="body-sm">Balance: $1.00</Typography>
+            </Grid>
+            <Grid xs={6}>
+              <Typography level="body-sm">$1.00</Typography>
+            </Grid>
+          </Grid>
         </Sheet>
       </FormControl>
       <FormControl>
@@ -63,14 +80,30 @@ export const Swap = () => {
           variant="outlined"
         >
           <FormLabel>Buy</FormLabel>
-          <Input
-            name="token-buy"
-            type="text"
-            placeholder="Choose token to buy"
-          />
+          <Grid container spacing={2} sx={{ flexGrow: 1 }}>
+            <Grid xs={6}>
+              <Autocomplete
+                defaultValue={"MATIC"}
+                options={["MATIC", "ETH", "USDT"]}
+              />
+            </Grid>
+            <Grid xs={6}>
+              <Input
+                name="token-buy"
+                type="text"
+                defaultValue={0}
+              />
+            </Grid>
+            <Grid xs={6}>
+              <Typography level="body-sm">Balance: $1.00</Typography>
+            </Grid>
+            <Grid xs={6}>
+              <Typography level="body-sm">$1.00</Typography>
+            </Grid>
+          </Grid>
         </Sheet>
       </FormControl>
-      <Button>Swap</Button>
+      <Button size="lg">Swap</Button>
     </Sheet>
   )
 }
