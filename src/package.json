@@ -1,5 +1,5 @@
 {
-  "name": "crypto-coins-exchange",
+  "name": "dex-crypto-exchange",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
