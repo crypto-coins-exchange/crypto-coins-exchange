@@ -62,7 +62,7 @@ export const Swap = () => {
               <Typography level="body-sm">Balance: $1.00</Typography>
             </Grid>
             <Grid xs={6}>
-              <Typography level="body-sm">$1.00</Typography>
+              <Typography level="body-sm" textAlign="right">$1.00</Typography>
             </Grid>
           </Grid>
         </Sheet>
@@ -99,7 +99,7 @@ export const Swap = () => {
               <Typography level="body-sm">Balance: $1.00</Typography>
             </Grid>
             <Grid xs={6}>
-              <Typography level="body-sm">$1.00</Typography>
+              <Typography level="body-sm" textAlign="right">$1.00</Typography>
             </Grid>
           </Grid>
         </Sheet>
