@@ -32,10 +32,6 @@ export const Navigation = (props: Props) => {
     const [open, setOpen] = React.useState(false)
     const [walletConnected, setWalletConnected] = React.useState(false)
 
-    const setChain = (chain: Chain) => {
-        props.setState({ chain: { chain } })
-    }
-
     return (
         <Box
             component="header"
