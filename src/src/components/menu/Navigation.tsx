@@ -13,14 +13,13 @@ import {
     Stack,
 } from "@mui/joy"
 import {
-    DarkMode,
     Home,
-    LightMode,
     MenuRounded
 } from "@mui/icons-material"
 import { StateProps } from "../../lib/state"
 import { ChainSelector } from "./ChainSelector"
 import { ModeSelector } from "./ModeSelector"
+import { WalletConnector } from "./WalletConnector"
 
 interface Props extends StateProps {
 
@@ -28,7 +27,6 @@ interface Props extends StateProps {
 
 export const Navigation = (props: Props) => {
     const [open, setOpen] = React.useState(false)
-    const [walletConnected, setWalletConnected] = React.useState(false)
 
     return (
         <Box
@@ -146,15 +144,7 @@ export const Navigation = (props: Props) => {
                     <List role="menubar" orientation="horizontal" size="lg">
                         <ModeSelector />
                         <ChainSelector {...props} />
-                        <ListItem role="none">
-                            <ListItemButton
-                                color={walletConnected ? "warning" : "success"}
-                                variant="soft"
-                                onClick={() => setWalletConnected(!walletConnected)}
-                            >
-                                {walletConnected ? "Disconnect wallet" : "Connect wallet"}
-                            </ListItemButton>
-                        </ListItem>
+                        <WalletConnector {...props} />
                     </List>
                 </Box>
             </Box>
