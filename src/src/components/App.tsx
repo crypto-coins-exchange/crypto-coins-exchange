@@ -47,7 +47,7 @@ function App() {
         }}>
         <Navigation {...stateProps} />
         <Body />
-        <Wallet />
+        <Wallet {...stateProps} />
       </Box>
 
     </CssVarsProvider>
