@@ -68,6 +68,13 @@ export const ChainSelector = (props: Props) => {
                         {props.state.chain.chain === Chain.Polygon && <Check />}
                     </ListItemDecorator>
                 </MenuItem>
+                <MenuItem onClick={() => setChain(Chain.Base)}>
+                    <Icons chain={Chain.Base} />
+                    Base
+                    <ListItemDecorator>
+                        {props.state.chain.chain === Chain.Base && <Check />}
+                    </ListItemDecorator>
+                </MenuItem>
                 <MenuItem onClick={() => setChain(Chain.BnbChain)}>
                     <Icons chain={Chain.BnbChain} />
                     BNB Chain
