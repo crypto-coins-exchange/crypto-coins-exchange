@@ -21,7 +21,7 @@ import {
 } from "@mui/icons-material"
 import { Chain } from "../../lib/chains"
 import { StateProps } from "../../lib/state"
-import { SelectChain } from "./SelectChain"
+import { ChainSelector } from "./ChainSelector"
 
 interface Props extends StateProps {
 
@@ -158,7 +158,7 @@ export const Navigation = (props: Props) => {
                                 {mode === "light" ? <LightMode /> : <DarkMode />}
                             </ListItemButton>
                         </ListItem>
-                        <SelectChain {...props} />
+                        <ChainSelector {...props} />
                         <ListItem role="none">
                             <ListItemButton
                                 color={walletConnected ? "warning" : "success"}

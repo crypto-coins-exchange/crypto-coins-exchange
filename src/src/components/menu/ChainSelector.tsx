@@ -15,7 +15,7 @@ interface Props extends StateProps {
 
 }
 
-export const SelectChain = (props: Props) => {
+export const ChainSelector = (props: Props) => {
     const setChain = (chain: Chain) => {
         props.setState({ chain: { chain } })
     }
