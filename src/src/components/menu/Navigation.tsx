@@ -3,17 +3,12 @@ import {
     Box,
     DialogTitle,
     Drawer,
-    Dropdown,
     IconButton,
     List,
     ListDivider,
     ListItem,
     ListItemButton,
     ListItemContent,
-    ListItemDecorator,
-    Menu,
-    MenuButton,
-    MenuItem,
     ModalClose,
     Stack,
     useColorScheme
@@ -22,12 +17,11 @@ import {
     DarkMode,
     Home,
     LightMode,
-    Check,
     MenuRounded
 } from "@mui/icons-material"
-import { Icons, } from "../common/Icons"
 import { Chain } from "../../lib/chains"
 import { StateProps } from "../../lib/state"
+import { SelectChain } from "./SelectChain"
 
 interface Props extends StateProps {
 
@@ -168,69 +162,7 @@ export const Navigation = (props: Props) => {
                                 {mode === "light" ? <LightMode /> : <DarkMode />}
                             </ListItemButton>
                         </ListItem>
-                        <Dropdown>
-                            <MenuButton
-                                variant="plain"
-                                size="lg"
-                                title="Choose chain"
-                                sx={{ maxWidth: "58px", maxHeight: "42px", borderRadius: "0px" }}
-                            >
-                                <Icons chain={props.state.chain.chain} />
-                            </MenuButton>
-                            <Menu
-                                placement="bottom-end"
-                                size="md"
-                                sx={{
-                                    zIndex: "99999",
-                                    p: 1,
-                                    gap: 1,
-                                    "--ListItem-radius": "var(--joy-radius-sm)",
-                                }}
-                            >
-                                <MenuItem onClick={() => setChain(Chain.Ethereum)}>
-                                    <Icons chain={Chain.Ethereum} />
-                                    Ethereum
-                                    <ListItemDecorator>
-                                        {props.state.chain.chain === Chain.Ethereum && <Check />}
-                                    </ListItemDecorator>
-                                </MenuItem>
-                                <MenuItem onClick={() => setChain(Chain.Arbitrum)}>
-                                    <Icons chain={Chain.Arbitrum} />
-                                    Arbitrum
-                                    <ListItemDecorator>
-                                        {props.state.chain.chain === Chain.Arbitrum && <Check />}
-                                    </ListItemDecorator>
-                                </MenuItem>
-                                <MenuItem onClick={() => setChain(Chain.Optimism)}>
-                                    <Icons chain={Chain.Optimism} />
-                                    Optimism
-                                    <ListItemDecorator>
-                                        {props.state.chain.chain === Chain.Optimism && <Check />}
-                                    </ListItemDecorator>
-                                </MenuItem>
-                                <MenuItem onClick={() => setChain(Chain.Polygon)}>
-                                    <Icons chain={Chain.Polygon} />
-                                    Polygon
-                                    <ListItemDecorator>
-                                        {props.state.chain.chain === Chain.Polygon && <Check />}
-                                    </ListItemDecorator>
-                                </MenuItem>
-                                <MenuItem onClick={() => setChain(Chain.BnbChain)}>
-                                    <Icons chain={Chain.BnbChain} />
-                                    BNB Chain
-                                    <ListItemDecorator>
-                                        {props.state.chain.chain === Chain.BnbChain && <Check />}
-                                    </ListItemDecorator>
-                                </MenuItem>
-                                <MenuItem onClick={() => setChain(Chain.Avalanche)}>
-                                    <Icons chain={Chain.Avalanche} />
-                                    Avalanche
-                                    <ListItemDecorator>
-                                        {props.state.chain.chain === Chain.Avalanche && <Check />}
-                                    </ListItemDecorator>
-                                </MenuItem>
-                            </Menu>
-                        </Dropdown>
+                        <SelectChain {...props} />
                         <ListItem role="none">
                             <ListItemButton
                                 color={walletConnected ? "warning" : "success"}
