@@ -7,6 +7,18 @@ import {
 import { Swap } from "./swap/Swap"
 import { Navigation } from "./menu/Navigation"
 import { Wallet } from "./wallet/Wallet"
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
+
+const Body = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="swap" element={<Swap />} />
+        <Route path="*" element={<Navigate to="/swap" />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
 function App() {
 
@@ -23,7 +35,7 @@ function App() {
           minHeight: "100vh",
         }}>
         <Navigation />
-        <Swap />
+        <Body />
         <Wallet />
       </Box>
 
