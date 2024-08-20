@@ -11,7 +11,6 @@ import {
     ListItemContent,
     ModalClose,
     Stack,
-    useColorScheme
 } from "@mui/joy"
 import {
     DarkMode,
@@ -19,16 +18,15 @@ import {
     LightMode,
     MenuRounded
 } from "@mui/icons-material"
-import { Chain } from "../../lib/chains"
 import { StateProps } from "../../lib/state"
 import { ChainSelector } from "./ChainSelector"
+import { ModeSelector } from "./ModeSelector"
 
 interface Props extends StateProps {
 
 }
 
 export const Navigation = (props: Props) => {
-    const { mode, setMode } = useColorScheme()
     const [open, setOpen] = React.useState(false)
     const [walletConnected, setWalletConnected] = React.useState(false)
 
@@ -146,18 +144,7 @@ export const Navigation = (props: Props) => {
                     }}
                 >
                     <List role="menubar" orientation="horizontal" size="lg">
-                        <ListItem role="none">
-                            <ListItemButton
-                                role="menuitem"
-                                component="button"
-                                title={mode === "light" ? "Turn dark" : "Turn light"}
-                                onClick={() => {
-                                    setMode(mode === "light" ? "dark" : "light")
-                                }}
-                            >
-                                {mode === "light" ? <LightMode /> : <DarkMode />}
-                            </ListItemButton>
-                        </ListItem>
+                        <ModeSelector />
                         <ChainSelector {...props} />
                         <ListItem role="none">
                             <ListItemButton
