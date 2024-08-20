@@ -26,22 +26,21 @@ import {
     MenuRounded
 } from "@mui/icons-material"
 import { Icons, } from "../common/Icons"
+import { Chain } from "../../lib/chains"
+import { StateProps } from "../../lib/state"
 
-enum Chain {
-    Ethereum,
-    Arbitrum,
-    Optimism,
-    Polygon,
-    Base,
-    BnbChain,
-    Avalanche,
+interface Props extends StateProps {
+
 }
 
-export const Navigation = () => {
+export const Navigation = (props: Props) => {
     const { mode, setMode } = useColorScheme()
     const [open, setOpen] = React.useState(false)
     const [walletConnected, setWalletConnected] = React.useState(false)
-    const [chain, setChain] = React.useState(Chain.Ethereum)
+
+    const setChain = (chain: Chain) => {
+        props.setState({ chain: { chain } })
+    }
 
     return (
         <Box
@@ -176,7 +175,7 @@ export const Navigation = () => {
                                 title="Choose chain"
                                 sx={{ maxWidth: "58px", maxHeight: "42px", borderRadius: "0px" }}
                             >
-                                <Icons chain={chain} />
+                                <Icons chain={props.state.chain.chain} />
                             </MenuButton>
                             <Menu
                                 placement="bottom-end"
@@ -192,42 +191,42 @@ export const Navigation = () => {
                                     <Icons chain={Chain.Ethereum} />
                                     Ethereum
                                     <ListItemDecorator>
-                                        {chain === Chain.Ethereum && <Check />}
+                                        {props.state.chain.chain === Chain.Ethereum && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.Arbitrum)}>
                                     <Icons chain={Chain.Arbitrum} />
                                     Arbitrum
                                     <ListItemDecorator>
-                                        {chain === Chain.Arbitrum && <Check />}
+                                        {props.state.chain.chain === Chain.Arbitrum && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.Optimism)}>
                                     <Icons chain={Chain.Optimism} />
                                     Optimism
                                     <ListItemDecorator>
-                                        {chain === Chain.Optimism && <Check />}
+                                        {props.state.chain.chain === Chain.Optimism && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.Polygon)}>
                                     <Icons chain={Chain.Polygon} />
                                     Polygon
                                     <ListItemDecorator>
-                                        {chain === Chain.Polygon && <Check />}
+                                        {props.state.chain.chain === Chain.Polygon && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.BnbChain)}>
                                     <Icons chain={Chain.BnbChain} />
                                     BNB Chain
                                     <ListItemDecorator>
-                                        {chain === Chain.BnbChain && <Check />}
+                                        {props.state.chain.chain === Chain.BnbChain && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                                 <MenuItem onClick={() => setChain(Chain.Avalanche)}>
                                     <Icons chain={Chain.Avalanche} />
                                     Avalanche
                                     <ListItemDecorator>
-                                        {chain === Chain.Avalanche && <Check />}
+                                        {props.state.chain.chain === Chain.Avalanche && <Check />}
                                     </ListItemDecorator>
                                 </MenuItem>
                             </Menu>

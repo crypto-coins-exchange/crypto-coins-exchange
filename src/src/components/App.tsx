@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Box,
   CssBaseline,
@@ -8,6 +8,7 @@ import { Swap } from "./swap/Swap"
 import { Navigation } from "./menu/Navigation"
 import { Wallet } from "./wallet/Wallet"
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
+import { State, StateProps, defaultState } from "../lib/state"
 
 const Body = () => {
   return (
@@ -21,6 +22,16 @@ const Body = () => {
 }
 
 function App() {
+  const [state, setState] = useState(defaultState)
+
+  const updateState = (newState: Partial<State>) => {
+    setState(x => ({ ...x, ...newState }))
+  }
+
+  const stateProps: StateProps = {
+    state,
+    setState: updateState,
+  }
 
   return (
     <CssVarsProvider
@@ -34,7 +45,7 @@ function App() {
           gridTemplateRows: "60px auto",
           minHeight: "100vh",
         }}>
-        <Navigation />
+        <Navigation {...stateProps} />
         <Body />
         <Wallet />
       </Box>
