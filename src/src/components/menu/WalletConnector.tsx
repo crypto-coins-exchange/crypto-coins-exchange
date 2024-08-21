@@ -1,5 +1,6 @@
 import { ListItem, ListItemButton } from "@mui/joy";
 import { StateProps } from "../../lib/state";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 interface Props extends StateProps {
 
@@ -12,13 +13,14 @@ export const WalletConnector = (props: Props) => {
 
     return (
         <ListItem role="none">
-            <ListItemButton
+            <ConnectButton />
+            {/* <ListItemButton
                 color={props.state.wallet.address ? "warning" : "success"}
                 variant="soft"
                 onClick={() => setWalletConnected(!props.state.wallet.address)}
             >
                 {props.state.wallet.address ? "Disconnect wallet" : "Connect wallet"}
-            </ListItemButton>
+            </ListItemButton> */}
         </ListItem>
     )
 }
