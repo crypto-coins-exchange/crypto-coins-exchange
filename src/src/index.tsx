@@ -13,7 +13,6 @@ import {
   optimism,
   polygon,
   base,
-  opBNB,
   avalanche,
 } from "wagmi/chains"
 import {
@@ -24,12 +23,12 @@ import {
 const config = getDefaultConfig({
   appName: "Dex crypto exchange",
   projectId: "2e6a2bce47d5fcff2d627cd76cedb06c",
-  chains: [mainnet,
+  chains: [
+    mainnet,
     arbitrum,
     optimism,
     polygon,
     base,
-    opBNB,
     avalanche,
   ],
 })
