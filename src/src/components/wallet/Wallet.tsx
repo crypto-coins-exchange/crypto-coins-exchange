@@ -28,12 +28,16 @@ export const Wallet = (props: Props) => {
 }
 
 export const ConnectedWallet = (props: Props) => {
+    const trimAddress = (address: string) => {
+        return `${address.substring(0, 10)}...${address.substring(address.length - 10)}`
+    }
+
     return (
         <Stack spacing={4}>
             <Stack direction="row" spacing={1} alignItems="center">
                 <Icons chain={props.state.chain.chain} />
                 <Typography level="title-lg">
-                    0x98997c9a68b...1d9c3533f9e5d1a1
+                    {trimAddress(props.state.wallet.address!)}
                 </Typography>
             </Stack>
 

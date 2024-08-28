@@ -1,15 +1,19 @@
-import { ListItem, ListItemButton } from "@mui/joy";
-import { StateProps } from "../../lib/state";
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { ListItem } from "@mui/joy"
+import { StateProps } from "../../lib/state"
+import { ConnectButton } from "@rainbow-me/rainbowkit"
+import { useEffect } from "react"
+import { useAccount } from "wagmi"
 
 interface Props extends StateProps {
 
 }
 
 export const WalletConnector = (props: Props) => {
-    const setWalletConnected = (connected: boolean) => {
-        props.setState({ wallet: connected ? { address: "0x98997c9a68b...1d9c3533f9e5d1a1" } : {} })
-    }
+    const { address, isConnecting, isDisconnected } = useAccount()
+
+    useEffect(() => {
+        props.setState({ wallet: isDisconnected ? {} : { address } })
+    }, [isDisconnected, isConnecting])
 
     return (
         <ListItem role="none">
@@ -18,13 +22,6 @@ export const WalletConnector = (props: Props) => {
                 chainStatus="icon"
                 showBalance={false}
             />
-            {/* <ListItemButton
-                color={props.state.wallet.address ? "warning" : "success"}
-                variant="soft"
-                onClick={() => setWalletConnected(!props.state.wallet.address)}
-            >
-                {props.state.wallet.address ? "Disconnect wallet" : "Connect wallet"}
-            </ListItemButton> */}
         </ListItem>
     )
 }
