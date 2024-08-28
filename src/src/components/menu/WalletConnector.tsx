@@ -13,7 +13,11 @@ export const WalletConnector = (props: Props) => {
 
     return (
         <ListItem role="none">
-            <ConnectButton />
+            <ConnectButton
+                accountStatus="address"
+                chainStatus="icon"
+                showBalance={false}
+            />
             {/* <ListItemButton
                 color={props.state.wallet.address ? "warning" : "success"}
                 variant="soft"
