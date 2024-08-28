@@ -11,6 +11,7 @@ export enum Chain {
 }
 
 export interface ChainInfo {
+    code: Chain,
     id: number,
     label: string,
     rpc: string,
@@ -24,6 +25,7 @@ export interface ChainInfo {
 
 export const chains = new Map<Chain, ChainInfo>([
     [Chain.Ethereum, {
+        code: Chain.Ethereum,
         id: ChainId.MAINNET,
         label: "Ethereum",
         rpc: "https://rpc.ankr.com/eth",
@@ -31,6 +33,7 @@ export const chains = new Map<Chain, ChainInfo>([
         explorer: "https://etherscan.io/",
     }],
     [Chain.Arbitrum, {
+        code: Chain.Arbitrum,
         id: ChainId.ARBITRUM_ONE,
         label: "Arbitrum",
         rpc: "https://rpc.ankr.com/arbitrum",
@@ -38,6 +41,7 @@ export const chains = new Map<Chain, ChainInfo>([
         explorer: "https://arbiscan.io/",
     }],
     [Chain.Optimism, {
+        code: Chain.Optimism,
         id: ChainId.OPTIMISM,
         label: "Optimism",
         rpc: "https://rpc.ankr.com/optimism",
@@ -45,6 +49,7 @@ export const chains = new Map<Chain, ChainInfo>([
         explorer: "https://optimistic.etherscan.io/",
     }],
     [Chain.Polygon, {
+        code: Chain.Polygon,
         id: ChainId.POLYGON,
         label: "Polygon",
         rpc: "https://rpc.ankr.com/polygon",
@@ -52,6 +57,7 @@ export const chains = new Map<Chain, ChainInfo>([
         explorer: "https://polygonscan.com/",
     }],
     [Chain.Base, {
+        code: Chain.Base,
         id: ChainId.BASE,
         label: "Base",
         rpc: "https://rpc.ankr.com/base",
@@ -59,6 +65,7 @@ export const chains = new Map<Chain, ChainInfo>([
         explorer: "https://basescan.org/",
     }],
     [Chain.BnbChain, {
+        code: Chain.BnbChain,
         id: ChainId.BNB,
         label: "BNB Chain",
         rpc: "https://rpc.ankr.com/bsc",
@@ -66,6 +73,7 @@ export const chains = new Map<Chain, ChainInfo>([
         explorer: "https://bscscan.com/",
     }],
     [Chain.Avalanche, {
+        code: Chain.Avalanche,
         id: ChainId.AVALANCHE,
         label: "Avalanche",
         rpc: "https://rpc.ankr.com/avalanche",
