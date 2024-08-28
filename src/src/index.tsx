@@ -5,8 +5,6 @@ import "@fontsource/inter"
 import "@rainbow-me/rainbowkit/styles.css"
 import {
   getDefaultConfig,
-  RainbowKitProvider,
-  darkTheme,
 } from "@rainbow-me/rainbowkit"
 import { WagmiProvider } from "wagmi"
 import {
@@ -45,9 +43,7 @@ root.render(
   <React.StrictMode>
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider locale="en-US" modalSize="compact" theme={darkTheme()}>
-          <App />
-        </RainbowKitProvider>
+        <App />
       </QueryClientProvider>
     </WagmiProvider>
   </React.StrictMode>

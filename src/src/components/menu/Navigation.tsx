@@ -142,7 +142,7 @@ export const Navigation = (props: Props) => {
                     }}
                 >
                     <List role="menubar" orientation="horizontal" size="lg">
-                        <ModeSelector />
+                        <ModeSelector {...props} />
                         <ChainSelector {...props} />
                         <WalletConnector {...props} />
                     </List>

@@ -8,7 +8,12 @@ interface WalletState {
     address?: string,
 }
 
+interface ThemeState {
+    isLight: boolean,
+}
+
 export interface State {
+    theme: ThemeState,
     chain: ChainState,
     wallet: WalletState,
 }
@@ -19,6 +24,9 @@ export interface StateProps {
 }
 
 export const defaultState: State = {
+    theme: {
+        isLight: false,
+    },
     chain: {
         chain: Chain.Ethereum,
     },
